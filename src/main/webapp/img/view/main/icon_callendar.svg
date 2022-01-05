@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="그룹_2186" data-name="그룹 2186" transform="translate(-793.669 -751.44)">
+    <circle id="타원_13" data-name="타원 13" cx="15" cy="15" r="15" transform="translate(793.669 751.44)" fill="#72886c" opacity="0.359"/>
+    <g id="layer1" transform="translate(795.737 755.182)">
+      <g id="g4516" transform="translate(6.217 3.85)">
+        <rect id="rect51" width="13.43" height="13.783" transform="translate(0 1.035)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="line53" x2="13.43" transform="translate(0 3.963)" fill="none" stroke="#72886c" stroke-width="1"/>
+        <rect id="rect55" width="2.07" height="1.944" transform="translate(1.54 5.529)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <rect id="rect57" width="2.07" height="1.944" transform="translate(1.54 9.669)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <rect id="rect59" width="2.07" height="1.944" transform="translate(5.68 5.529)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <rect id="rect61" width="2.07" height="1.944" transform="translate(5.68 9.669)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <rect id="rect63" width="2.07" height="1.944" transform="translate(9.82 5.529)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <rect id="rect65" width="2.07" height="1.944" transform="translate(9.82 9.669)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="line67" x2="10.754" transform="translate(1.338 13.253)" fill="none" stroke="#72886c" stroke-width="1"/>
+        <line id="line69" x1="0.025" y1="1.035" transform="translate(2.474)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <line id="line71" y1="1.035" transform="translate(10.552)" fill="none" stroke="#72886c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

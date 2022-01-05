@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="comment">
+
+	<insert id="addComment">
+		insert into comment 
+		(comment_big_category, comment_small_category, comment_writer, comment_content) 
+		values 
+		(#{comment_big_category}, #{comment_small_category}, #{comment_writer}, #{comment_content})
+	</insert>
+	
+	<select id="getDetailGalleryCmt" resultType="com.wellness.gallery.CommentVO">
+		select * from comment 
+		where comment_big_category = 'gallery' 
+		and comment_small_category = #{gallery_idx}
+		order by comment_idx desc
+	</select>
+	
+	<update id="modifyComment">
+		update comment set 
+		comment_content = #{comment_content} 
+		where comment_idx = #{comment_idx}
+	</update>
+	
+	<delete id="deleteComment">
+		delete from comment 
+		where comment_idx = #{comment_idx}
+	</delete>
+	
+	
+</mapper>

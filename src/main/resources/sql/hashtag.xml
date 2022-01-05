@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="hashtag">
+
+	<select id="getHashTagForPopularTourist" resultType="com.wellness.main.HashTagVO">
+		select * from hash_tag 
+		where hash_tag_category = #{idx}
+	</select>
+	
+	<select id="getDetailTourHash" resultType="com.wellness.main.HashTagVO">
+		select * from hash_tag
+		where hash_tag_category = #{tour_idx}
+	</select>
+	
+	<select id="getDetailPackageTourHash" resultType="com.wellness.main.HashTagVO">
+		select * from hash_tag 
+		where hash_tag_category = #{tour_idx}
+	</select>
+	
+</mapper>

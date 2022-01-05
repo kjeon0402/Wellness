@@ -1,0 +1,199 @@
+/* @media screen and (max-width: 1500px) { */
+/* 	.sizeModal { */
+/* 		width: 1500px; */
+/* 	    height: 50000px; */
+/* 	    background-color: black; */
+/* 	    opacity: 0.8; */
+/* 	    position: fixed; */
+/* 	    top: 0; */
+/* 	    z-index: 5; */
+/* 	    display: block !important; */
+/* 	} */
+/* 	.textModal { */
+/* 		width: 1500px; */
+/* 	    color: white; */
+/* 	    font-size: 80px; */
+/* 	    margin: 124px auto; */
+/* 	    text-align: center; */
+/* 	    line-height: 3; */
+/* 	    z-index: 6; */
+/* 	    display: block !important; */
+/* 	} */
+/* } */
+.sizeModal {
+	display: none;
+}
+.textModal {
+	display: none;
+}
+	body {
+		min-width: 100%;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+	}
+	.event_wellness_detail_wrap {
+		width: 52%;
+		margin: auto;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_title {
+		width: 100%;
+		font-size: 24px;
+		font-weight: bold;
+		border-top: 2px solid #333333;
+		border-bottom: 1px solid #707070;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_title > .title {
+		padding: 8px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info {
+		width: 100%;
+		display: flex;
+		font-size: 18px;
+		border-bottom: 1px solid #707070;
+		margin-bottom: 30px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info > .event_wellness_detail_info_date {
+		display: flex;
+		width: 50%;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info > .event_wellness_detail_info_date > .date_title {
+		width: 40%;
+		padding: 8px 15px;
+		background-color: #F7F5F5;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info > .event_wellness_detail_info_date > .date_content {
+		width: 60%;
+		padding: 8px 15px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info > .event_wellness_detail_info_count {
+		display: flex;
+		width: 50%;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info > .event_wellness_detail_info_count > .count_title {
+		width: 40%;
+		padding: 8px 15px;
+		background-color: #F7F5F5;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info > .event_wellness_detail_info_count > .count_content {
+		display: 60%;
+		padding: 8px 15px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_content {
+		width: 100%;
+		border-bottom: 1px solid #707070;
+		padding-bottom: 40px;
+		margin-bottom: 30px;
+	}
+/* 	.event_wellness_detail_wrap > .event_wellness_detail_content > .img_area { */
+/* 		width: 100%; */
+/* 		height: 550px; */
+/* 		position: relative; */
+/* 		overflow: hidden; */
+/* 	} */
+/* 	.event_wellness_detail_wrap > .event_wellness_detail_content > .img_area > .img_slider { */
+/* 		position: absolute; */
+/* 		left: 0; */
+/* 		top: 0; */
+/* 		width: 300%; */
+/* 		transition: 0.5s; */
+/* 		list-style: none; */
+/* 		padding: 0; */
+/* 	} */
+/* 	.event_wellness_detail_wrap > .event_wellness_detail_content > .img_area > .img_slider > li { */
+/* 		float: left; */
+/* 	} */
+/* 	.event_wellness_detail_wrap > .event_wellness_detail_content > .img_area > .img_slider > li > img { */
+/* 		width: 989px; */
+/* 		height: 500px; */
+/* 	} */
+/* 	.event_wellness_detail_wrap > .event_wellness_detail_content > .img_area > .slider_controller > div { */
+/* 		position: absolute; */
+/* 		text-align: center; */
+/* 		cursor: pointer; */
+/* 		bottom: 0; */
+/* 		z-index: 3; */
+/* 	} */
+/* 	.event_wellness_detail_wrap > .event_wellness_detail_content > .img_area > .slider_controller > .prev_btn { */
+/* 	} */
+	.event_wellness_detail_wrap > .event_wellness_detail_content > .tour_content {
+		font-size: 14px;
+		margin: 25px 0;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_content > .tour_content > p {
+		margin: 0;
+		margin-bottom: 3px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_content > .tour_info {
+		font-size: 17px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_content > .tour_info > p {
+		margin: 0;
+		margin-bottom: 15px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_content > .tour_info > p > span:first-child {
+		font-weight: bold;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_content > .tour_info > p:nth-child(5) > span:last-child {
+		font-size: 14px;
+		margin-left: 80px;
+	}
+	.event_wellness_detail_wrap > .go_event_wellness_list {
+		display: flex;
+		justify-content: center;
+	}
+	.event_wellness_detail_wrap > .go_event_wellness_list > .btn {
+		width: 100px;
+		font-size: 18px;
+		font-weight: bold;
+		background-color: #72866C;
+		color: white;
+		padding: 10px;
+		border-radius: 50px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.img_area li {
+		list-style: none;
+	}
+	.img_area ul {
+		padding: 0;
+	}
+	.img_area img {
+		width: 100%;
+		height: 500px;
+	}
+	
+@media screen and (max-width: 768px) {
+	body {
+		min-width: 768px;
+	}
+}
+@media screen and (max-width: 767px) {
+	html, body {
+		min-width: 100%;
+	}
+	.header_wrap {
+		display: none;
+	}
+	.event_wellness_detail_wrap {
+    	width: 94%;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_title {
+	    font-size: 20px;
+	}
+	.event_wellness_detail_wrap > .event_wellness_detail_info {
+	    font-size: 10px;
+	}
+	.img_area img {
+	    height: 300px;
+	}
+}

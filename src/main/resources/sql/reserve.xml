@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="package">
+
+	<select id="getReserveList" resultType="com.wellness.reserve.ReserveVO">
+		select * from reservation where member_idx = #{member_idx} order by reservation_idx desc
+	</select>
+	
+	<select id="getReserveInfo" resultType="com.wellness.reserve.ReserveVO">
+		select * from reservation where package_idx = #{package_idx};
+	</select>
+
+	<select id="getReserveinfo2" resultType="com.wellness.reserve.ReserveVO">
+		select * from reservation where package_idx = #{package_idx} order by reservation_idx desc;
+	</select>
+	
+	<insert id="addReserve">
+		insert into reservation 
+		(member_idx, package_idx, package_name, reserve_theday, reserve_count, member_name, member_userid, member_phone, member_email, sum_price)
+		values 
+		(#{member_idx}, #{package_idx}, #{package_name}, #{reserve_theday}, #{reserve_count}, #{member_name}, #{member_userid}, #{member_phone}, #{member_email}, #{sum_price})
+	</insert>
+	
+	<select id="getReserveListAll" resultType="com.wellness.reserve.ReserveVO">
+		select * from reservation order by reservation_idx desc
+	</select>
+	
+	<update id="cancelReserve">
+		update reservation 
+		set paycheck = 'c'
+		where reservation_idx = #{c}
+	</update>
+	
+	<update id="confirmReserve">
+		update reservation 
+		set paycheck = 'y' 
+		where reservation_idx = #{c}
+	</update>
+	
+	<update id="cancelConfirmReserve">
+		update reservation 
+		set paycheck = 'x'
+		where reservation_idx = #{c}
+	</update>
+	
+	<select id="getReserveForCancle" resultType="com.wellness.reserve.ReserveVO">
+		select * from reservation where reservation_idx	= #{c}
+	</select>
+	
+</mapper>

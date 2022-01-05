@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="tour">
+
+	<select id="getLocate" resultType="com.wellness.tour.TourVO">
+		select tour_address from tour order by tour_address
+	</select>
+
+	<select id="getAll" resultType="com.wellness.tour.TourVO">
+		select * from tour
+	</select>
+	
+	<select id="getTopSix" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_idx = #{idx}
+	</select>
+	
+	<select id="getAllAboutCategory" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_category = #{tour_category}
+	</select>
+	
+	<select id="getAllAboutNature" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '자연교감' order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchAboutNature" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '자연교감' 
+		and tour_name like CONCAT('%',#{search_keyword},'%') 
+		order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getAllAboutOcean" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '오션레저' order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchAboutOcean" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '오션레저' 
+		and tour_name like CONCAT('%',#{search_keyword},'%') 
+		order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getAllAboutCosmetic" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '뷰티&amp;헬스스파' order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchAboutCosmetic" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '뷰티&amp;헬스스파' 
+		and tour_name like CONCAT('%',#{search_keyword},'%') 
+		order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getAllAboutMeal" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '영양식당' order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchAboutMeal" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '영양식당' 
+		and tour_name like CONCAT('%',#{search_keyword},'%') 
+		order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getAllAboutHotel" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '호텔리조트' order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchAboutHotel" resultType="com.wellness.tour.TourVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from tour where tour_category = '호텔리조트' 
+		and tour_name like CONCAT('%',#{search_keyword},'%') 
+		order by tour_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getDetailTour" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_idx = #{tour_idx}
+	</select>
+	
+	<select id="getLikeTourIdx" resultType="_int">
+		select tour_idx from tour where tour_name like CONCAT('%',#{tour_name},'%')
+	</select>
+	
+	<select id="getTourInfo" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_idx = #{wish_small_category};
+	</select>
+	
+	<select id="getPopularTour" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_idx = #{idx}	
+	</select>
+	
+	<select id="getTourInfoAsPackage" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_name = #{objForTour}	
+	</select>
+	
+	<select id="getTourByLocate" resultType="com.wellness.tour.TourVO">
+		select * from tour where tour_address like CONCAT('%',#{locate},'%')
+	</select>
+	
+	<select id="countContentsTourNature" resultType="_int">
+		select count(*) from tour where tour_category = '자연교감'
+	</select>
+
+	<select id="countContentsTourNatureBySearch" resultType="_int">
+		select count(*) from tour where tour_category = '자연교감' 
+		and tour_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	<select id="countContentsTourOcean" resultType="_int">
+		select count(*) from tour where tour_category = '오션레저'
+	</select>
+
+	<select id="countContentsTourOceanBySearch" resultType="_int">
+		select count(*) from tour where tour_category = '오션레저' 
+		and tour_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	<select id="countContentsTourCosmetic" resultType="_int">
+		select count(*) from tour where tour_category = '뷰티&amp;헬스스파'
+	</select>
+
+	<select id="countContentsTourCosmeticBySearch" resultType="_int">
+		select count(*) from tour where tour_category = '뷰티&amp;헬스스파' 
+		and tour_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	<select id="countContentsTourMeal" resultType="_int">
+		select count(*) from tour where tour_category = '영양식당'
+	</select>
+
+	<select id="countContentsTourMealBySearch" resultType="_int">
+		select count(*) from tour where tour_category = '영양식당' 
+		and tour_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	<select id="countContentsTourHotel" resultType="_int">
+		select count(*) from tour where tour_category = '호텔리조트'
+	</select>
+
+	<select id="countContentsTourHotelBySearch" resultType="_int">
+		select count(*) from tour where tour_category = '호텔리조트' 
+		and tour_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+	
+	
+	
+</mapper>

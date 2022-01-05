@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	
+	<select id="idCheck" resultType="int" parameterType="String">
+		select count(*) from member where member_userid = #{member_userid};
+	</select>	
+	
+	<select id="selectMember" resultType="com.wellness.member.MemberVO">
+		select * from member where member_idx = #{obj};
+	</select>
+
+	<insert id="join" parameterType="com.wellness.member.MemberVO">
+		insert into 
+		member(member_userid, member_password, member_name, member_phone, member_post, member_address, member_address_detail, member_email, member_belong, member_job)
+		values(#{member_userid}, #{member_password}, #{member_name}, #{member_phone}, #{member_post}, #{member_address}, #{member_address_detail},
+		#{member_email}, #{member_belong}, #{member_job});
+	</insert>
+	
+	<select id="login" parameterType="com.wellness.member.MemberVO" resultType="com.wellness.member.MemberVO">
+		select * from member where member_userid = #{member_userid} and member_password = SHA2(#{member_password}, 256);
+	</select>
+	
+	<select id="findIdByEmail" resultType="com.wellness.member.MemberVO">
+		select member_userid from member where member_name = #{member_name} and member_email = #{member_email};
+	</select>
+
+	<select id="findIdByPhone" resultType="com.wellness.member.MemberVO">
+		select member_userid from member where member_name = #{member_name} and member_phone = #{member_phone};
+	</select>
+	
+	<select id="findPwByEmailpw" resultType="com.wellness.member.MemberVO">
+		select * from member where member_userid = #{member_userid} and member_email = #{member_email};
+	</select>
+	
+	<select id="findPwByPhonepw" resultType="com.wellness.member.MemberVO">
+		select * from member where member_userid = #{member_userid} and member_phone = #{member_phone};
+	</select>
+	
+	<update id="findPwResult" parameterType="com.wellness.member.MemberVO">
+		update member set member_password = SHA2(#{newpassword}, 256) where member_idx = #{member_idx} and member_password = #{prepassword};
+	</update>
+	
+	<update id="changepw" parameterType="com.wellness.member.MemberVO">
+		update member set member_password = SHA2(#{newpassword}, 256) where member_idx = #{member_idx} and member_password = SHA2(#{prepassword}, 256);
+	</update>
+	
+	<update id="changePersonnal" parameterType="com.wellness.member.MemberVO">
+		update member 
+		set member_phone = #{member_phone}, member_post = #{member_post}, member_address = #{member_address}, member_address_detail = #{member_address_detail}, member_email = #{member_email}, member_belong = #{member_belong}, member_job = #{member_job}
+		where member_idx = #{member_idx};
+	</update>
+	
+	<select id="mypostingList" resultType="com.wellness.gallery.GalleryVO">
+		select * from gallery where member_idx = #{member_idx} and gallery_deleted = 'n' order by gallery_idx desc;
+	</select>
+	
+	<delete id="dropMember" parameterType="com.wellness.member.MemberVO">
+		update member set member_drop_date = (date_format(now(), '%Y-%m-%d')), member_dropped = 'y' where member_idx = #{member_idx};		
+<!-- 		delete from member where member_idx = #{member_idx}; -->
+	</delete>
+	
+	<insert id="deleteMyPosting" parameterType="String">
+<!-- 		update gallery set gallery_deleted = 'y' where gallery_idx = #{check}; -->
+		delete from gallery where gallery_idx = #{check};
+	</insert>
+	
+	<select id="deleteMyPostingCnt" resultType="int" parameterType="String">
+		select count(*) from gallery where gallery_deleted = 'n' and gallery_idx = #{check};
+	</select>
+	
+	<select id="mypostingEventList" resultType="com.wellness.event.EventVO">
+		select * from event_homepage where event_homepage_writer = #{event_homepage_writer} order by event_homepage_idx desc
+	</select>
+	
+	<select id="mypostingEventWellnessList" resultType="com.wellness.event_wellness.Event_wellnessVO">
+		select * from event_wellness where event_wellness_writer = #{event_wellness_writer} order by event_wellness_idx desc
+	</select>
+	
+	<select id="mypostingListAll" resultType="com.wellness.gallery.GalleryVO">
+		select * from gallery order by gallery_idx desc
+	</select>
+	
+	<select id="getMemberId" resultType="String">
+		select member_userid from member where member_idx = #{member_idx}
+	</select>
+	
+	<select id="Find_member" parameterType="com.wellness.member.MemberVO" resultType="String">
+		select member_userid from member where member_name = #{member_name} and member_phone = #{member_phone}
+	</select>
+	
+	<select id="Find_member_pw" resultType="com.wellness.member.MemberVO">
+		select * from member where member_userid = #{member_userid} and member_phone = #{member_phone}
+	</select>
+	
+	<select id="findPwByPhone" resultType="com.wellness.member.MemberVO">
+		select * from member where member_userid = #{member_userid} and member_phone = #{member_phone}
+	</select>
+	
+	<select id="findIdByEmailpw" resultType="com.wellness.member.MemberVO">
+		select * from member where member_userid = #{member_userid} and member_email = #{member_email}
+	</select>
+	
+</mapper>

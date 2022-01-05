@@ -1,0 +1,217 @@
+/* @media screen and (max-width: 1500px) { */
+/* 	.sizeModal { */
+/* 		width: 1500px; */
+/* 	    height: 50000px; */
+/* 	    background-color: black; */
+/* 	    opacity: 0.8; */
+/* 	    position: fixed; */
+/* 	    top: 0; */
+/* 	    z-index: 5; */
+/* 	    display: block !important; */
+/* 	} */
+/* 	.textModal { */
+/* 		width: 1500px; */
+/* 	    color: white; */
+/* 	    font-size: 80px; */
+/* 	    margin: 124px auto; */
+/* 	    text-align: center; */
+/* 	    line-height: 3; */
+/* 	    z-index: 6; */
+/* 	    display: block !important; */
+/* 	} */
+/* } */
+.sizeModal {
+	display: none;
+}
+.textModal {
+	display: none;
+}
+body {
+	min-width: 100%;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    a {
+    	text-decoration: none;
+    	color: inherit;
+    	cursor: pointer;
+    }
+    .join_wrap {
+        width: 100%;
+/*         float: left; */
+    }
+    .join_form {
+    	width: 52%;
+    	margin: 0 auto;
+    	margin-top: 50px;
+    	margin-bottom: 50px;
+    }
+    .join_text {
+    	font-weight: bold;
+    	font-size: 20px;
+    	text-align: center;
+    	margin-bottom: 10px;
+    }
+    .join_text_left {
+    	font-weight: bold;
+    	font-size: 15px;
+    	text-align: left;
+    }
+    .join_text_right {
+    	font-weight: bold;
+    	font-size: 15px;
+    	text-align: right;
+    	margin-bottom: 10px;
+    }
+    .join_table {
+    	width: 100%;
+    	border-collapse: collapse;
+    	border-top: 1px solid #707070;
+    }
+    .join_table > tbody > tr > td {
+    	border-bottom: 1px solid #707070;
+    }
+    .left_td {
+    	width: 23%;
+    	background-color: #F4F4F4; 
+    	padding: 50px;
+    	padding-left: 5%;
+    	font-weight: bold;
+    	font-size: 13px;
+    }
+    .right_td {
+    	padding: 20px;
+    }
+    .right_td input {
+    	outline: none;
+    	font-size: 15px;
+    	padding-left: 10px;
+    	margin-right: 20px;
+    	width: 65%;
+    	border: none;
+    	border-bottom: 1px solid #707070;
+    }
+    .right_td_btn, select {
+    	width: 100px;
+    	height: 30px;
+    	border: 1px solid #707070;
+    	color: #707070;
+    	font-size: 13px;
+    	background-color: white;
+    	vertical-align: middle;
+    }
+    select {
+    	outline: none;
+    	padding-left: 5px;
+    }
+    .right_td_btn:hover {
+    	background-color: #707070;
+    	color: white;
+    	cursor: pointer; 
+    }
+    .rule {
+    	margin-top: 10px;
+    	font-weight: bold;
+    	font-size: 11px;
+    }
+    .agree_all_text {
+    	margin: 100px 0 20px 0;
+    	font-size: 13px;
+    	font-weight: bold; 
+    }
+    .agree_checkbox_div {
+    	display: flex;
+    	margin-bottom: 30px;
+    	font-size: 13px;
+    }
+    .agree_checkbox_div img {
+    	width: 20px;
+    	height: 20px;
+    }
+    .agree_checkbox {
+    	margin-right: 5px;
+    }
+    .agree_title_div {
+    	font-size:13px;
+    	font-weight: bold;
+    	margin-bottom: 10px; 
+    }
+    .agree_content_div {
+    	border: 1px solid #707070;
+    	background-color: #F4F4F4;
+    	font-size: 13px;
+    	padding: 10px;
+    	margin-bottom: 10px;
+    }
+    .agree_confirm_div {
+    	margin-right: 5px;
+    }
+    input[type=checkbox] {
+    	display: none;
+    }
+    .form_submit_div {
+    	text-align: center;
+    }
+    .form_submit_div > button {
+    	border-radius: 50px;
+    }
+    .form_submit_div > button:first-child {
+    	background-color: #72886C;
+    }
+    .ok_btn, .cancel_btn {
+    	width: 100px;
+    	height: 35px;
+    	font-size: 15px;
+    	font-weight: bold;
+    }
+    .ok_btn:hover, .cancel_btn:hover {
+    	cursor: pointer;
+    }
+    .ok_btn {
+    	border: 1px solid #72886C;
+    	background-color: #72886C;
+    	color: white;
+    	margin-right: 5px;
+    }
+    .cancel_btn {
+    	border: 1px solid #72886C;
+    	background-color: white;
+    	color: #5C8E46;
+    	margin-left: 5px;
+    }
+    .agree_checkbox_div img{
+    	cursor: pointer;
+    }
+    .acd_textarea {
+    	resize: none;
+    	border: none;
+    	width: 100%;
+    	height: 200px;
+    	background-color: inherit;
+    	font-size: 13px;
+    	font-family: 'Nanum Gothic', sans-serif;
+    	line-height: 20px;
+    }
+    
+    
+@media screen and (max-width: 1024px) {
+	body {
+		min-width: 1024px !important;
+	}
+	.join_form {
+    	width: 85%;
+	}
+}
+@media screen and (max-width: 768px) {
+	body {
+		min-width: 768px !important;
+	}
+}
+@media screen and (max-width: 360px) {
+	body {
+		min-width: 360px !important;
+	}
+}
+

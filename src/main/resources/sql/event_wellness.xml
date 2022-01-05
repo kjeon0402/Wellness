@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="event_wellness">
+
+	<insert id="addEventWellness">
+		insert into event_wellness 
+		(event_wellness_title, event_wellness_content, event_wellness_writer) 
+		values 
+		(#{event_wellness_title}, #{event_wellness_content}, #{event_wellness_writer})
+	</insert>
+	
+	<select id="getEventWellnessThisIdx" resultType="_int">
+		select event_wellness_idx from event_wellness 
+		where event_wellness_title = #{event_wellness_title}
+		and event_wellness_content = #{event_wellness_content}
+		and event_wellness_writer = #{event_wellness_writer} limit 1
+	</select>
+	
+	<select id="getAllEventWellness" resultType="com.wellness.event_wellness.Event_wellnessVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_wellness order by event_wellness_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchEventWellness" resultType="com.wellness.event_wellness.Event_wellnessVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_wellness where event_wellness_title like CONCAT('%',#{search_keyword},'%') order by event_wellness_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getDetailEventWellness" resultType="com.wellness.event_wellness.Event_wellnessVO">
+		select * from event_wellness 
+		where event_wellness_idx = #{obj}
+	</select>
+	
+	<update id="plusDetailEventWellnessCount">
+		update event_wellness 
+		set event_wellness_count = #{event_wellness_count} 
+		where event_wellness_idx = #{event_wellness_idx}
+	</update>
+	
+	<update id="modifyEventWellnessPost">
+		update event_wellness 
+		set event_wellness_title = #{event_wellness_title},
+		event_wellness_content = #{event_wellness_content}
+		where event_wellness_idx = #{event_wellness_idx}
+	</update>
+	
+	<select id="countContentsEventWellness" resultType="int">
+		select count(*) from event_wellness
+	</select>
+
+	<select id="countContentsEventWellnessBySearch" resultType="int">
+		select count(*) from event_wellness where event_wellness_title like CONCAT('%',#{search_keyword},'%')
+	</select>
+	
+	
+</mapper>

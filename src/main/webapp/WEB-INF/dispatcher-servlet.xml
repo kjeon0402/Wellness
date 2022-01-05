@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<mvc:annotation-driven />
+
+	<!-- 컨트롤러등을 찾는 기본 패키지 경로 -->
+	<!-- 개체를 찾는 경로 -->
+	<context:component-scan base-package="com.*" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/img/**" location="/img/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/se2/**" location="/se2/" />
+	<mvc:resources mapping="/img/*" location="/img/" />
+	<mvc:resources mapping="/business_img/*" location="file:\\\C:\workspace\img\business\" />
+	<mvc:resources mapping="/contents_img/*" location="file:\\\C:\workspace\img\contents\" />
+	<mvc:resources mapping="/profile_img/*" location="file:\\\C:\workspace\img\profile\" />
+	<mvc:resources mapping="/crawiling_img/*" location="file:\\\C:\workspace\img\crawiling\" />
+<!-- 	<mvc:resources mapping="/tourimg/**" location="file:///home/ec2-user/Wellness_space/tourimg/" /> -->
+	<mvc:resources mapping="/tourimg/**" location="file:\\\C:\Wellness_space\tourimg\" />
+<!-- 	<mvc:resources mapping="/noticeimg/**" location="file:///home/ec2-user/Wellness_space/noticeimg/" /> -->
+	<mvc:resources mapping="/noticeimg/**" location="file:\\\C:\Wellness_space\noticeimg\" />
+<!-- 	<mvc:resources mapping="/packageimg/**" location="file:///home/ec2-user/Wellness_space/packageimg/" /> -->
+	<mvc:resources mapping="/packageimg/**" location="file:\\\C:\Wellness_space\packageimg\" />
+<!-- 	<mvc:resources mapping="/galleryimg/**" location="file:///home/ec2-user/Wellness_space/galleryimg/" /> -->
+	<mvc:resources mapping="/galleryimg/**" location="file:\\\C:\Wellness_space\galleryimg\" />
+<!-- 	<mvc:resources mapping="/gallery_file/**" location="file:///home/ec2-user/Wellness_space/gallery_file/" /> -->
+	<mvc:resources mapping="/gallery_file/**" location="file:\\\C:\Wellness_space\gallery_file\" />
+<!-- 	<mvc:resources mapping="/eventwellnessimg/**" location="file:///home/ec2-user/Wellness_space/eventwellnessimg/" /> -->
+	<mvc:resources mapping="/eventwellnessimg/**" location="file:\\\C:\Wellness_space\eventwellnessimg\" />
+<!-- 	<mvc:resources mapping="/eventimg/**" location="file:///home/ec2-user/Wellness_space/eventimg/" /> -->
+	<mvc:resources mapping="/eventimg/**" location="file:\\\C:\Wellness_space\eventimg\" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="20971520" />
+		<property name="maxInMemorySize" value="1048576" />
+	</bean>
+
+	<bean id="contents_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\contents" />
+	</bean>
+
+	<bean id="profile_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\profile" />
+	</bean>
+
+	<bean id="business_path" class="java.lang.String">
+		<constructor-arg value="C:\workspace\img\business" />
+	</bean>
+
+</beans>

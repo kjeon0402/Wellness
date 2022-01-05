@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="gallery">
+
+	<select id="getCntBest" resultType="com.wellness.gallery.GalleryVO">
+		select * from gallery 
+		order by gallery_count desc limit 6
+	</select>
+	
+	<insert id="addGallery" parameterType="com.wellness.gallery.GalleryVO">
+		insert into gallery (member_idx, gallery_title, gallery_content) 
+		values (#{member_idx}, #{gallery_title}, #{gallery_content})
+	</insert>	
+	
+	<select id="getThisIdx" resultType="_int">
+		select gallery_idx from gallery 
+		where member_idx = #{member_idx} 
+		and gallery_title = #{gallery_title} 
+		and gallery_content = #{gallery_content}
+	</select>
+	
+	<select id="getGalleryAll" resultType="com.wellness.gallery.GalleryVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from gallery order by gallery_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchGalleryAll" resultType="com.wellness.gallery.GalleryVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from gallery where gallery_title like CONCAT('%',#{search_keyword},'%') order by gallery_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getDetailGallery" resultType="com.wellness.gallery.GalleryVO">
+		select * from gallery where gallery_idx = #{obj}
+	</select>
+	
+	<update id="plusDetailGalleryCount">
+		update gallery 
+		set gallery_count = #{gallery_count} 
+		where gallery_idx = #{gallery_idx}
+	</update>
+	
+	<update id="modifyPost">
+		update gallery set gallery_title = #{gallery_title}, gallery_content = #{gallery_content} where gallery_idx = #{gallery_idx}
+	</update>
+	
+	<delete id="deletegallery" parameterType="int">
+		delete from image where img_big_category = 'gallery' and img_small_category = #{objGIdx}
+	</delete>
+	
+	<select id="countContentsGallery" resultType="int">
+		select count(*) from gallery
+	</select>
+	
+	<select id="getGalleryAllForCount" resultType="_int">
+		select count(*) from gallery
+	</select>
+	
+	<select id="countContentsGalleryBySearch" resultType="_int">
+		select count(*) from gallery where gallery_title like CONCAT('%',#{search_keyword},'%')
+	</select>
+	
+</mapper>

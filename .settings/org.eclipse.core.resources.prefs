@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/wellness/certification/Email_Certification.java=UTF-8
+encoding//src/main/java/com/wellness/event/EventController.java=UTF-8
+encoding//src/main/java/com/wellness/event_wellness/Event_wellnessController.java=UTF-8
+encoding//src/main/java/com/wellness/gallery/GalleryController.java=UTF-8
+encoding//src/main/java/com/wellness/main/HomeController.java=UTF-8
+encoding//src/main/java/com/wellness/member/MemberController.java=UTF-8
+encoding//src/main/java/com/wellness/notice/NoticeController.java=UTF-8
+encoding//src/main/java/com/wellness/sms/SmsCtr.java=UTF-8
+encoding//src/main/webapp/css/tour_list_cosmetic.css=UTF-8
+encoding//src/main/webapp/css/tour_list_hotel.css=UTF-8
+encoding//src/main/webapp/css/tour_list_meal.css=UTF-8
+encoding//src/main/webapp/css/tour_list_nature.css=UTF-8
+encoding//src/main/webapp/css/tour_list_ocean.css=UTF-8

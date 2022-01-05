@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="wishList">
+
+	<select id="getLikeCnt" resultType="_int">
+		select count(*) from wish_list 
+		where wish_big_category = 'tour' and wish_small_category = #{tour_idx}
+	</select>
+	
+	<select id="getLikeCntAboutCateogry" resultType="_int">
+		select count(*) from wish_list 
+		where wish_big_category = #{tour_category} and wish_small_category = #{tour_idx}
+	</select>
+	
+	<insert id="addWishList" parameterType="com.wellness.main.WishListVO">
+		insert into wish_list (member_idx, wish_big_category, wish_small_category) 
+		values (#{member_idx}, #{wish_big_category}, #{wish_small_category})
+	</insert>
+	
+	<delete id="deleteWishList" parameterType="com.wellness.main.WishListVO">
+		delete from wish_list where member_idx = #{member_idx} and wish_small_category = #{wish_small_category}
+	</delete>
+
+	<select id="getMemberLike" resultType="com.wellness.main.WishListVO">
+		select * from wish_list 
+		where wish_big_category = 'tour' 
+		and member_idx = #{member_idx}
+	</select>
+	
+	<select id="getWishList" resultType="com.wellness.main.WishListVO">
+		select wish_small_category from wish_list where member_idx = #{member_idx} and wish_big_category = 'tour' order by wish_list_idx desc
+	</select>
+	
+	<select id="getMemberLikePackage" resultType="com.wellness.main.WishListVO">
+		select * from wish_list 
+		where wish_big_category = 'package' 
+		and member_idx = #{member_idx}	
+	</select>
+	
+	<select id="getLikeCntPackage" resultType="_int">
+		select count(*) from wish_list 
+		where wish_big_category = 'package' and wish_small_category = #{package_idx}
+	</select>
+	
+	<select id="getWishListPackage" resultType="com.wellness.main.WishListVO">
+		select wish_small_category from wish_list where member_idx = #{member_idx} and wish_big_category = 'package' order by wish_list_idx desc
+	</select>
+	
+</mapper>

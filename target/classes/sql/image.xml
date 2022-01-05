@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="image">
+
+	<select id="getTopSixImage" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'tour' 
+		and img_small_category = #{idx} 
+		and img_path like '%1.%'
+	</select>
+	
+	<select id="getGalleryImgBest" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'gallery' 
+		and img_small_category = #{gallery_idx} limit 1
+	</select>
+	
+	<select id="getImageNature" resultType="com.wellness.main.ImageVO">
+		select * from image
+		where img_big_category = 'tour'
+		and img_small_category = #{tour_idx}
+		and img_path like '%1.%'
+	</select>
+
+	<select id="getImageOcean" resultType="com.wellness.main.ImageVO">
+		select * from image
+		where img_big_category = 'tour'
+		and img_small_category = #{tour_idx}
+		and img_path like '%1.%'
+	</select>
+
+	<select id="getImageCosmetic" resultType="com.wellness.main.ImageVO">
+		select * from image
+		where img_big_category = 'tour'
+		and img_small_category = #{tour_idx}
+		and img_path like '%1.%'
+	</select>
+
+	<select id="getImageMeal" resultType="com.wellness.main.ImageVO">
+		select * from image
+		where img_big_category = 'tour'
+		and img_small_category = #{tour_idx}
+		and img_path like '%1.%'
+	</select>
+
+	<select id="getImageHotel" resultType="com.wellness.main.ImageVO">
+		select * from image
+		where img_big_category = 'tour'
+		and img_small_category = #{tour_idx}
+		and img_path like '%1.%'
+	</select>
+	
+	<select id="getDetailTourImage" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'tour' 
+		and img_small_category = #{tour_idx}
+	</select>
+	
+	<insert id="addImgFile" parameterType="com.wellness.main.ImageVO">
+		insert into image (img_big_category, img_small_category, img_path) 
+		values (#{img_big_category}, #{img_small_category}, #{img_path})
+	</insert>
+	
+	<select id="getGalleryImage" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'gallery' 
+		and img_small_category = #{gallery_idx}
+	</select>
+	
+	<select id="getDetailGalleryImg" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'gallery' 
+		and img_small_category = #{gallery_idx}
+	</select>
+	
+	<select id="getImageByTourIdx" resultType="com.wellness.main.ImageVO">
+		select * from image where img_big_category = 'tour' and img_small_category = #{tour_idx} limit 1;
+	</select>
+	
+	<insert id="addEventWellnessImg">
+		insert into image (img_big_category, img_small_category, img_path)
+		values (#{img_big_category}, #{img_small_category}, #{img_path})
+	</insert>
+	
+	<select id="getDetailEventWellnessImg" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'event_wellness' 
+		and img_small_category = #{event_wellness_idx}
+	</select>
+	
+	<insert id="addEventImg">
+		insert into image (img_big_category, img_small_category, img_path)
+		values (#{img_big_category}, #{img_small_category}, #{img_path})
+	</insert>
+	
+	<select id="getEventImg" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'event_homepage'
+		and img_small_category = #{event_homepage_idx}
+	</select>
+	
+	<select id="getDetailEventImg" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'event_homepage' 
+		and img_small_category = #{event_homepage_idx}
+	</select>
+	
+	<select id="getDetailPackageTourImg" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'tour' 
+		and img_small_category = #{tour_idx}
+	</select>
+	
+	<select id="getDetailNoticeImg" resultType="com.wellness.main.ImageVO">
+		select * from image 
+		where img_big_category = 'notice' 
+		and img_small_category = #{notice_idx}
+	</select>
+	
+	<select id="getEFile" resultType="String">
+		select img_path from image 
+		where img_big_category = 'event_homepage' 
+		and img_small_category = #{event_homepage_idx}
+	</select>
+	
+	<delete id="deleteeventfile">
+		delete from image 
+		where img_big_category = 'event_homepage' 
+		and img_small_category = #{objEIdx}
+	</delete>
+	
+	<update id="updateEventImg">
+		update image set img_path = #{img_path} 
+		where img_big_category = 'event_homepage' 
+		and img_small_category = #{img_small_category}
+	</update>
+	
+	<delete id="deleteeventwellnessfile">
+		delete from image 
+		where img_big_category = 'event_wellness' 
+		and img_small_category = #{objEWIdx}
+	</delete>
+	
+</mapper>

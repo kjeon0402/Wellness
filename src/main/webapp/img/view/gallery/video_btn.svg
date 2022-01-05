@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="102.827" height="33.446" viewBox="0 0 102.827 33.446">
+  <g id="그룹_2214" data-name="그룹 2214" transform="translate(-955.204 -1019.8)">
+    <g id="사각형_820" data-name="사각형 820" transform="translate(955.204 1019.8)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="102.827" height="33.446" stroke="none"/>
+      <rect x="0.5" y="0.5" width="101.827" height="32.446" fill="none"/>
+    </g>
+    <text id="동영상추가" transform="translate(990.135 1039.627)" fill="#707070" font-size="11" font-family="NanumGothic"><tspan x="0" y="0">동영상추가</tspan></text>
+    <g id="그룹_2158" data-name="그룹 2158" transform="translate(971.867 1031.414)">
+      <path id="패스_8242" data-name="패스 8242" d="M1928.734,5815.154V5805.4h4.829l1.182,1.239h6.524v8.513Z" transform="translate(-1928.734 -5805.402)" fill="none" stroke="#707070" stroke-width="0.8"/>
+      <path id="패스_8243" data-name="패스 8243" d="M1948.549,5817.92v3.789" transform="translate(-1942.482 -5814.102)" fill="none" stroke="#707070" stroke-width="0.8"/>
+      <path id="패스_8244" data-name="패스 8244" d="M0,0V3.789" transform="translate(7.961 5.713) rotate(90)" fill="none" stroke="#707070" stroke-width="0.8"/>
+    </g>
+  </g>
+</svg>

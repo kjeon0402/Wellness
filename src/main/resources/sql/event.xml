@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="event">
+
+	<insert id="addEvent">
+		insert into event_homepage 
+		(event_homepage_title, event_homepage_content, event_homepage_writer, event_homepage_start_date, event_homepage_end_date) 
+		values 
+		(#{event_homepage_title}, #{event_homepage_content}, #{event_homepage_writer}, #{event_homepage_start_date}, #{event_homepage_end_date})
+	</insert>
+	
+	<select id="getEventThisIdx" resultType="_int">
+		select event_homepage_idx from event_homepage 
+		where event_homepage_title = #{event_homepage_title}
+		and event_homepage_content = #{event_homepage_content}
+		and event_homepage_writer = #{event_homepage_writer}
+		and event_homepage_start_date = #{event_homepage_start_date}
+		and event_homepage_end_date = #{event_homepage_end_date}
+		limit 1
+	</select>
+	
+	<select id="getAllEvent" resultType="com.wellness.event.EventVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_homepage order by event_homepage_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchEvent" resultType="com.wellness.event.EventVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_homepage where event_homepage_title like CONCAT('%',#{search_keyword},'%') order by event_homepage_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getDetailEvent" resultType="com.wellness.event.EventVO">
+		select * from event_homepage 
+		where event_homepage_idx = #{obj}
+	</select>
+	
+	<update id="plusDetailEventCount">
+		update event_homepage 
+		set event_homepage_count = #{event_homepage_count} 
+		where event_homepage_idx = #{event_homepage_idx}
+	</update>
+	
+	<update id="modifyEventPost">
+		update event_homepage 
+		set event_homepage_title = #{event_homepage_title}, 
+		event_homepage_content = #{event_homepage_content}, 
+		event_homepage_start_date = #{event_homepage_start_date}, 
+		event_homepage_end_date = #{event_homepage_end_date} 
+		where event_homepage_idx = #{event_homepage_idx}
+	</update>
+	
+	<delete id="deleteMyPostingEvent" parameterType="String">
+		delete from event_homepage where event_homepage_idx = #{c};
+	</delete>
+	
+	<select id="getDoingEvent" resultType="com.wellness.event.EventVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_homepage 
+		where event_homepage_do_doing = 'y' order by event_homepage_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchDoingEvent" resultType="com.wellness.event.EventVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_homepage 
+		where event_homepage_do_doing = 'y'
+		and event_homepage_title like CONCAT('%',#{search_keyword},'%') 
+		order by event_homepage_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getEndEvent" resultType="com.wellness.event.EventVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_homepage 
+		where event_homepage_do_doing = 'e' order by event_homepage_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchEndEvent" resultType="com.wellness.event.EventVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from event_homepage 
+		where event_homepage_do_doing = 'e'
+		and event_homepage_title like CONCAT('%',#{search_keyword},'%') 
+		order by event_homepage_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<update id="settingN">
+		update event_homepage 
+		set event_homepage_do_doing = 'n'
+		where event_homepage_idx = #{event_homepage_idx}
+	</update>
+	
+	<update id="settingY">
+		update event_homepage 
+		set event_homepage_do_doing = 'y'
+		where event_homepage_idx = #{event_homepage_idx}
+	</update>
+	
+	<update id="settingE">
+		update event_homepage 
+		set event_homepage_do_doing = 'e'
+		where event_homepage_idx = #{event_homepage_idx}
+	</update>
+	
+	<select id="countContentsEvent" resultType="int">
+		select count(*) from event_homepage
+	</select>
+
+	<select id="countContentsEventBySearch" resultType="int">
+		select count(*) from event_homepage where event_homepage_title like CONCAT('%',#{search_keyword},'%')
+	</select>
+	
+	<select id="getAllEventForHome" resultType="com.wellness.event.EventVO">
+		select * from event_homepage		
+	</select>
+	
+</mapper>

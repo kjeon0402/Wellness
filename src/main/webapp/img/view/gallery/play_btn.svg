@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="86" height="86" viewBox="0 0 86 86">
+  <defs>
+    <filter id="패스_8390" x="25.637" y="18.64" width="43.727" height="48.72" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="패스_8390-2" x="25.637" y="18.64" width="43.727" height="48.72" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-2"/>
+      <feFlood flood-opacity="0.161" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-2"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+    <filter id="타원_247" x="0" y="0" width="86" height="86" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+    </filter>
+    <filter id="타원_247-2" x="0" y="0" width="86" height="86" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-4"/>
+      <feFlood flood-opacity="0.161" result="color-2"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-4"/>
+      <feComposite operator="in" in="color-2"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="그룹_2218" data-name="그룹 2218" transform="translate(-424 -706)">
+    <g data-type="innerShadowGroup">
+      <g transform="matrix(1, 0, 0, 1, 424, 706)" filter="url(#패스_8390)">
+        <path id="패스_8390-3" data-name="패스 8390" d="M20.768,3a2,2,0,0,1,3.465,0L43.27,36a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,36Z" transform="translate(66.39 18.86) rotate(91)" fill="#fff"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 424, 706)" filter="url(#패스_8390-2)">
+        <path id="패스_8390-4" data-name="패스 8390" d="M20.768,3a2,2,0,0,1,3.465,0L43.27,36a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,36Z" transform="translate(66.39 18.86) rotate(91)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="그룹_2215" data-name="그룹 2215">
+      <g data-type="innerShadowGroup">
+        <g transform="matrix(1, 0, 0, 1, 424, 706)" filter="url(#타원_247)">
+          <g id="타원_247-3" data-name="타원 247" transform="translate(1 1)" fill="none" stroke="#fff" stroke-width="3">
+            <circle cx="40" cy="40" r="40" stroke="none"/>
+            <circle cx="40" cy="40" r="38.5" fill="none"/>
+          </g>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, 424, 706)" filter="url(#타원_247-2)">
+          <circle id="타원_247-4" data-name="타원 247" cx="40" cy="40" r="40" transform="translate(1 1)" fill="#fff"/>
+        </g>
+        <g id="타원_247-5" data-name="타원 247" transform="translate(425 707)" fill="none" stroke="#fff" stroke-width="3">
+          <circle cx="40" cy="40" r="40" stroke="none"/>
+          <circle cx="40" cy="40" r="38.5" fill="none"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

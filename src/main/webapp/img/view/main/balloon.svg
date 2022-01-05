@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="316" height="291.997" viewBox="0 0 316 291.997">
+  <defs>
+    <filter id="합치기_1" x="0" y="0" width="316" height="291.997" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="합치기_1-2" x="0" y="0" width="316" height="291.997" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-2"/>
+      <feFlood flood-opacity="0.161" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-2"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#합치기_1)">
+      <path id="합치기_1-3" data-name="합치기 1" d="M3522,485.294a12,12,0,0,1-12-12v-230a12,12,0,0,1,12-12h130.87l12.261-32,11.164,32H3808a12,12,0,0,1,12,12v230a12,12,0,0,1-12,12Z" transform="translate(-3509 -198.3)" fill="#fff"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#합치기_1-2)">
+      <path id="합치기_1-4" data-name="합치기 1" d="M3522,485.294a12,12,0,0,1-12-12v-230a12,12,0,0,1,12-12h130.87l12.261-32,11.164,32H3808a12,12,0,0,1,12,12v230a12,12,0,0,1-12,12Z" transform="translate(-3509 -198.3)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

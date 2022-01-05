@@ -1,0 +1,305 @@
+/* @media screen and (max-width: 1500px) { */
+/* 	.sizeModal { */
+/* 		width: 1500px; */
+/* 	    height: 50000px; */
+/* 	    background-color: black; */
+/* 	    opacity: 0.8; */
+/* 	    position: fixed; */
+/* 	    top: 0; */
+/* 	    z-index: 5; */
+/* 	    display: block !important; */
+/* 	} */
+/* 	.textModal { */
+/* 		width: 1500px; */
+/* 	    color: white; */
+/* 	    font-size: 80px; */
+/* 	    margin: 124px auto; */
+/* 	    text-align: center; */
+/* 	    line-height: 3; */
+/* 	    z-index: 6; */
+/* 	    display: block !important; */
+/* 	} */
+/* } */
+.sizeModal {
+	display: none;
+}
+.textModal {
+	display: none;
+}
+	body {
+		min-width: 100%;
+		padding: 0;
+        margin: 0;
+        width: 100%;
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    a {
+    	text-decoration: none;
+    	color: inherit;
+    	cursor: pointer;
+    }
+    .hidden {
+    	display: none !important;
+    }
+    .mypage_main {
+        width: 100%;
+/*         float: left; */
+    }
+    .mypage_main > .mypage_main_wrap {
+    	width: 52%;
+    	margin: auto;
+    }
+    .mypage_main_wrap > .top_info_member {
+		width: 100%;
+		border-bottom: 1px solid #707070;
+		margin: 20px 0;
+		padding-bottom: 10px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+	.mypage_main_wrap > .mypage_category {
+		width: 100%;
+	}
+	.mypage_main_wrap > .mypage_category > ul {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 40px;
+	}
+	.mypage_main_wrap > .mypage_category > ul > li {
+		width: 150px;
+		padding: 10px;
+		border: 1px solid #707070;
+		text-align: center;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	.mypage_main_wrap > .mypage_category > ul > li:nth-child(2) {
+		background-color: #72886C;
+		color: white;
+	}
+	.mypage_main > .mypage_main_wrap > .page_title {
+		border-bottom: 1px solid #707070;
+		font-size: 18px;
+		font-weight: bold;
+		padding-bottom: 10px;
+	}
+    .mypage_main > .mypage_main_wrap > .notice_password_change {
+    	margin: 20px 0;
+    }
+    .mypage_main > .mypage_main_wrap > .notice_password_change > p {
+    	margin: 0;
+    	margin-bottom: 10px;
+    	font-size: 13px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw {
+    	width: 100%;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password {
+    	display: flex;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password > .pre_password_title {
+    	width: 20%;
+    	font-size: 13px;
+    	font-weight: bold;
+    	display: flex;
+    	align-items: center;
+    	background-color: #F4F2F2;
+    	padding: 20px 0;
+    	border-top: 1px solid #707070;
+    	border-bottom: 1px solid #707070;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password > .pre_password_title > span {
+    	margin-left: 15px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password > .pre_password_title > .need_icon {
+    	width: 12px;
+    	height: 15px;
+    	background-size: 100%;
+    	background-position: center center;
+    	background-repeat: no-repeat;
+    	margin-right: 5px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password > .pre_password_input {
+    	width: 80%;
+    	padding: 20px 0;
+    	border-top: 1px solid #707070;
+    	border-bottom: 1px solid #707070;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password > .pre_password_input > input {
+    	all: unset;
+    	width: 250px;
+    	font-size: 12px;
+    	border-bottom: 1px solid #707070;
+    	padding: 5px;
+    	margin-left: 25px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .pre_password > .pre_password_input > p {
+    	margin: 0;
+    	margin-top: 5px;
+    	margin-left: 25px;
+    	font-size: 11px;
+    	font-weight: bold;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password {
+    	display: flex;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password > .new_password_title {
+    	width: 20%;
+    	font-size: 13px;
+    	font-weight: bold;
+    	display: flex;
+    	align-items: center;
+    	background-color: #F4F2F2;
+    	padding: 20px 0;
+    	border-bottom: 1px solid #707070;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password > .new_password_title > span {
+    	margin-left: 15px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password > .new_password_title > .need_icon {
+    	width: 12px;
+    	height: 15px;
+    	background-size: 100%;
+    	background-position: center center;
+    	background-repeat: no-repeat;
+    	margin-right: 5px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password > .new_password_input {
+    	width: 80%;
+    	padding: 20px 0;
+    	border-bottom: 1px solid #707070;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password > .new_password_input > input {
+    	all: unset;
+    	width: 250px;
+    	font-size: 12px;
+    	border-bottom: 1px solid #707070;
+    	padding: 5px;
+    	margin-left: 25px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password > .new_password_input > p {
+    	margin: 0;
+    	margin-top: 5px;
+    	margin-left: 25px;
+    	font-size: 11px;
+    	font-weight: bold;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check {
+    	display: flex;
+    	margin-bottom: 15px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_title {
+    	width: 20%;
+    	font-size: 13px;
+    	font-weight: bold;
+    	display: flex;
+    	align-items: center;
+    	background-color: #F4F2F2;
+    	padding: 20px 0;
+    	border-bottom: 1px solid #707070;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_title > span {
+    	margin-left: 15px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_title > .need_icon {
+    	width: 12px;
+    	height: 15px;
+    	background-size: 100%;
+    	background-position: center center;
+    	background-repeat: no-repeat;
+    	margin-right: 5px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_input {
+    	width: 80%;
+    	display: flex;
+    	padding: 20px 0;
+    	border-bottom: 1px solid #707070;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_input > input {
+    	all: unset;
+    	width: 250px;
+    	font-size: 12px;
+    	border-bottom: 1px solid #707070;
+    	padding: 5px;
+    	margin-left: 25px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_input > .co_check_btn {
+    	border: 1px solid #707070;
+    	font-size: 12px;
+    	color: #707070;
+    	padding: 5px 25px;
+    	cursor: pointer;
+    	margin-left: 10px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_input > .text_co_password {
+    	font-size: 10px;
+    	color: blue;
+    	padding: 5px;
+    	display: flex;
+    	align-items: center;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .new_password_check > .new_password_check_input > .text_noco_password {
+    	font-size: 10px;
+    	color: red;
+    	padding: 5px;
+    	display: flex;
+    	align-items: center;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .button_area {
+    	text-align: center;
+    	margin-top: 30px;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .button_area  input[type="button"] {
+    	all: unset;
+    	font-size: 13px;
+    	font-weight: bold;
+    	padding: 5px 35px;
+    	border: 1px solid #72886C;
+    	border-radius: 50px;
+    	cursor: pointer;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .button_area > input[name="change_btn"] {
+    	background-color: #72886C;
+    	color: white;
+    }
+    .mypage_main > .mypage_main_wrap > .box_change_pw > .change_pw_form > .button_area > a > input[name="cancel"] {
+    	color: #72886C;
+    	margin-left: 5px;
+    }
+    
+@media screen and (max-width: 1024px) {
+	body {
+		min-width: 1024px;
+	}
+	.mypage_main > .mypage_main_wrap {
+    	width: 85%;
+	}
+	.mypage_main_wrap > .mypage_category > ul > li {
+	    width: 19%;
+	    padding: 10px 0;
+	}
+}
+@media screen and (max-width: 768px) {
+	body {
+		min-width: 768px;
+	}
+}
+@media screen and (max-width: 767px) {
+	html, body {
+		min-width: 100%;
+	}
+	.header_wrap {
+		display: none;
+	}
+	.mypage_main > .mypage_main_wrap {
+    	width: 94%;
+	}
+	.mypage_main_wrap > .mypage_category > ul {
+		font-size: 10px;
+	}
+}
+

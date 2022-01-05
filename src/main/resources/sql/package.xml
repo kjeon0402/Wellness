@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="package">
+
+	<select id="getPackageInfo" resultType="com.wellness.package_tour.PackageVO">
+		select * from package where package_idx = #{package_idx};
+	</select>
+	
+	<select id="getPackage" resultType="com.wellness.package_tour.PackageVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from package where package_category = #{obj} 
+		order by package_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchPackage" resultType="com.wellness.package_tour.PackageVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from package where package_category = #{obj} 
+		and package_name like CONCAT('%',#{search_keyword},'%') 
+		order by package_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getLikePackageIdx" resultType="_int">
+		select package_idx from package where package_name = #{package_name}
+	</select>
+	
+	<select id="getPopularPackage" resultType="com.wellness.package_tour.PackageVO">
+		select * from package where package_idx = #{idx}	
+	</select>
+	
+	<select id="getDetailPackage" resultType="com.wellness.package_tour.PackageVO">
+		select * from package where package_idx = #{obj}
+	</select>
+	
+	<select id="getPackageByTourname" resultType="com.wellness.package_tour.PackageVO">
+		select * from package 
+		where tour_name1 = #{tour_name} 
+		or tour_name2 = #{tour_name} 
+		or tour_name3 = #{tour_name} 
+		or tour_name4 = #{tour_name} 
+		or tour_name5 = #{tour_name} 
+	</select>
+	
+	<select id="getPackageInfoByWish" resultType="com.wellness.package_tour.PackageVO">
+		select * from package where package_idx = #{wish_small_category}
+	</select>
+	
+	<select id="getDetailPackageForReserve" resultType="com.wellness.package_tour.PackageVO">
+		select * from package where package_idx = #{package_idx}
+	</select>	
+	
+	<update id="plusCnt">
+		update package 
+		set number_of_reservation = #{number_of_reservation} 
+		where package_idx = #{package_idx}
+	</update>
+	
+	<select id="minusCnt" resultType="com.wellness.package_tour.PackageVO">
+		select * from package where package_idx = #{package_idx}
+	</select>
+	
+	<update id="changeCnt">
+		update package 
+		set number_of_reservation = #{number_of_reservation} 
+		where package_idx = #{package_idx}
+	</update>
+	
+	<select id="countContentsPackageNature" resultType="_int">
+		select count(*) from package where package_category = '자연교감형'
+	</select>
+
+	<select id="countContentsPackageNatureBySearch" resultType="_int">
+		select count(*) from package where package_category = '자연교감형' 
+		and package_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	<select id="countContentsPackageOcean" resultType="_int">
+		select count(*) from package where package_category = '해양체험형'
+	</select>
+
+	<select id="countContentsPackageOceanBySearch" resultType="_int">
+		select count(*) from package where package_category = '해양체험형' 
+		and package_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	<select id="countContentsPackageStory" resultType="_int">
+		select count(*) from package where package_category = '스토리텔링형'
+	</select>
+	
+	<select id="countContentsPackageStoryBySearch" resultType="_int">
+		select count(*) from package where package_category = '스토리텔링형' 
+		and package_name like CONCAT('%',#{search_keyword},'%')
+	</select>
+
+	
+</mapper>

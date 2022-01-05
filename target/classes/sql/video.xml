@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="video">
+
+	<insert id="addVideoFile" parameterType="com.wellness.main.VideoVO">
+		insert into video (video_big_category, video_small_category, video_path) 
+		values (#{video_big_category}, #{video_small_category}, #{video_path})
+	</insert>
+	
+	<select id="getGalleryVideo" resultType="com.wellness.main.VideoVO">
+		select * from video 
+		where video_big_category = 'gallery' 
+		and video_small_category = #{gallery_idx}
+	</select>
+	
+	<select id="getDetailGalleryVideo" resultType="com.wellness.main.VideoVO">
+		select * from video 
+		where video_big_category = 'gallery' 
+		and video_small_category = #{gallery_idx}
+	</select>
+	
+	<select id="getGalleryVideoBest" resultType="com.wellness.main.VideoVO">
+		select * from video 
+		where video_big_category = 'gallery' 
+		and video_small_category = #{gallery_idx} 
+		limit 1
+	</select>
+	
+</mapper>

@@ -1,0 +1,198 @@
+/* @media screen and (max-width: 1500px) { */
+/* 	.sizeModal { */
+/* 		width: 1500px; */
+/* 	    height: 50000px; */
+/* 	    background-color: black; */
+/* 	    opacity: 0.8; */
+/* 	    position: fixed; */
+/* 	    top: 0; */
+/* 	    z-index: 5; */
+/* 	    display: block !important; */
+/* 	} */
+/* 	.textModal { */
+/* 		width: 1500px; */
+/* 	    color: white; */
+/* 	    font-size: 80px; */
+/* 	    margin: 124px auto; */
+/* 	    text-align: center; */
+/* 	    line-height: 3; */
+/* 	    z-index: 6; */
+/* 	    display: block !important; */
+/* 	} */
+/* } */
+.sizeModal {
+	display: none;
+}
+.textModal {
+	display: none;
+}
+body {
+	min-width: 100%;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		font-family: 'Nanum Gothic', sans-serif;
+	}
+	a {
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+	}
+	.event_main_wrap {
+		width: 52%;
+		margin: auto;
+		margin-top: 50px;
+	}
+	.event_main_wrap > .event_kind {
+		margin: 15px 0;
+	}
+	.event_main_wrap > .event_kind > ul {
+		list-style: none;
+		display: flex;
+		padding: 0;
+		margin: 0;
+	}
+	.event_main_wrap > .event_kind > ul > li {
+		border-right: 1px solid #707070;
+		cursor: pointer;
+		padding-right: 10px;
+		margin-right: 10px;
+		font-size: 13px;
+	}
+/* 	.event_main_wrap > .event_kind > ul > li:first-child { */
+/* 		color: #72866C; */
+/* 		font-weight: bold; */
+/* 	} */
+/* 	.event_main_wrap > .event_kind > ul > li:last-child { */
+/* 		border-right: none; */
+/* 	} */
+	.search_icon {
+		background-image: url('${root}/img/view/notice/search_icon.svg');
+		width: 11px;
+		height: 11px;
+	}
+	.event_main_wrap > .event_list {
+		width: 100%;
+		display: flex;
+		flex-flow: wrap;
+		justify-content: space-between;
+	}
+	.event_main_wrap > .event_list > .event_one_thumbnail {
+		width: 24%;
+		margin-bottom: 40px;
+	}
+	.event_main_wrap > .event_list > .event_one_thumbnail > .event_one_img {
+		width: 100%;
+		height: 250px;
+		background-size: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	.event_main_wrap > .event_list > .event_one_thumbnail > .event_one_title {
+		margin: 10px 0;
+		font-size: 14px;
+		font-weight: bold;
+		cursor: pointer;
+	}
+	.event_main_wrap > .event_list > .event_one_thumbnail > .event_one_duration {
+		font-size: 12px;
+	}
+	.event_main_wrap > .event_search_div {
+		display: flex;
+		margin-bottom: 20px;
+	}
+	.event_main_wrap > .event_search_div form {
+		display: flex;
+	}
+	/* .event_main_wrap > .event_search_div > */.search_input {
+		width: 250px;
+		padding: 8px;
+		border: 1px solid #707070;
+		margin-right: 10px;
+		display: flex;
+		align-items: center;
+	}
+	/* .event_main_wrap > .event_search_div > */.search_input > input {
+		all: unset;
+		font-size: 12px;
+		width: 93%;
+	}
+	/* .event_main_wrap > .event_search_div > */.search_btn > input {
+		all: unset;
+		width: 45px;
+		height: 36px;
+		text-align: center;
+/* 		padding: 8px 25px; */
+		font-size: 12px;
+		color: white;
+		background-color: #72866C;
+		cursor: pointer;
+/* 		display: flex; */
+/* 		align-items: center; */
+	}
+	.event_main_wrap > .paging {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
+    }
+    .event_main_wrap > .paging > a {
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        padding: 10px;
+        border: 1px solid #707070;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .event_main_wrap > .paging > div {
+        background-color: #72866C;
+        color: white;
+        padding: 10px;
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        display: flex;
+        justify-content: center;
+        border: 1px solid #72866C;
+    }
+   	.write_wrap button {
+		border: none;
+		background-color: #72886C;
+		color: white;
+		cursor: pointer;
+		width: 100px;
+		height: 35px;
+	}
+	
+@media screen and (max-width: 1024px) {
+	body {
+		min-width: 1024px;
+	}
+	.event_main_wrap {
+    	width: 85%;
+	}
+}
+@media screen and (max-width: 768px) {
+	body {
+		min-width: 768px;
+	}
+}
+@media screen and (max-width: 767px) {
+	html, body {
+		min-width: 100%;
+	}
+	.header_wrap {
+		display: none; 
+	}
+	.event_main_wrap {
+    	width: 94%;
+	}
+	.event_main_wrap > .event_list > .event_one_thumbnail {
+	    width: 45%;
+	    margin-bottom: 40px;
+	}
+}
+

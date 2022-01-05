@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+
+	<select id="addNotice" parameterType="com.wellness.notice.NoticeVO">
+		insert into notice (notice_title, notice_writer, notice_content, notice_file) 
+		values (#{notice_title}, #{notice_writer}, #{notice_content}, #{notice_file})
+	</select>
+	
+	<select id="getAllNotice" resultType="com.wellness.notice.NoticeVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from notice order by notice_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+
+	<select id="getSearchNotice" resultType="com.wellness.notice.NoticeVO">
+		select * from (select @rownum:=@rownum+1 as num, n.*
+		from(select * from notice where notice_title like CONCAT('%',#{search_keyword},'%') order by notice_idx desc)n, 
+		(select @rownum:=0)v)num where num.num between #{start} and #{end}
+	</select>
+	
+	<select id="getDetailNotice" resultType="com.wellness.notice.NoticeVO">
+		select * from notice where notice_idx = #{obj}	
+	</select>
+	
+	<update id="plusDetailNoticeCount">
+		update notice 
+		set notice_count = #{notice_count} 
+		where notice_idx = #{notice_idx}
+	</update>
+	
+	<select id="getLastIdx" resultType="_int">
+		select notice_idx from notice 
+		order by notice_idx desc limit 1
+	</select>
+	
+	<select id="mypostingNoticeList" resultType="com.wellness.notice.NoticeVO">
+		select * from notice where notice_writer = #{notice_writer} order by notice_idx desc
+	</select>
+	
+	<update id="deletenoticefile">
+		update notice set notice_file = '' where notice_idx = #{objNIdx}
+	</update>
+
+	<update id="modifyNoticePost">
+		update notice set notice_title = #{notice_title}, notice_content = #{notice_content}, notice_file = #{notice_file} 
+		where notice_idx = #{notice_idx}
+	</update>
+	
+	<select id="getNFile" resultType="String">
+		select notice_file from notice where notice_idx = #{notice_idx}
+	</select>
+	
+	<delete id="deleteMyPostingNotice" parameterType="String">
+		delete from notice where notice_idx = #{c};
+	</delete>
+	
+	<select id="countContents" resultType="int">
+		select count(*) from notice
+	</select>
+
+	<select id="countContentsBySearch" resultType="int">
+		select count(*) from notice where notice_title like CONCAT('%',#{search_keyword},'%')
+	</select>
+	
+</mapper>
